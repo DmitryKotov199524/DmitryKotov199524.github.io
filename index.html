@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Котов Дмитрий - Фронтенд разработчик</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <nav class="main-nav">
+    <a href="#home" class="nav-active">Главная</a>
+    <a href="#about">Обо мне</a>
+    <a href="#portfolio">Портфолио</a>
+    <a href="#contact">Контакты</a>
+    <span class="nav-highlight"></span>
+  </nav>
+  
+  <main class="main-content">
+    <!-- Секция: Header (Home) -->
+    <section class="header" id="home">
+      <div class="header-content">
+        <div class="header-left">
+          <h1>Котов Дмитрий</h1>
+          <p class="typing-text">Фронтенд разработчик</p>
+        </div>
+        <div class="header-right">
+          <div class="photo-wrapper">
+            <img src="assets/images/photo.jpg" alt="Фотография Дмитрия Котова" class="center-photo" loading="lazy" decoding="async" width="800" height="800">
+            <img src="assets/images/photo.jpg" alt="" class="side-photo left" loading="lazy" decoding="async" width="800" height="800">
+            <img src="assets/images/photo.jpg" alt="" class="side-photo right" loading="lazy" decoding="async" width="800" height="800">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция: About -->
+    <section id="about" class="about-section">
+      <div class="warning-box">
+        <h2>Обо мне</h2>
+      </div>
+      <div class="about-content">
+        <p>Я получил высшее образование в Орловском государственном университете имени Тургенева на кафедре математического и экономического анализа по специальности "Бизнес-информатика".</p>
+        <p>Моя образовательная программа сочетает в себе глубокие знания в области математики, экономики и информационных технологий, что позволяет мне эффективно решать сложные задачи на стыке этих дисциплин.</p>
+        <p>Я освоил современные веб-технологии, включая HTML, CSS и JavaScript, и продолжаю развивать свои навыки в области фронтенд-разработки. Моя цель — создавать интуитивно понятные, эстетичные и высокопроизводительные веб-приложения, которые обеспечивают исключительный пользовательский опыт.</p>
+        <p>Я стремлюсь к постоянному профессиональному росту, изучению новых технологий и применению лучших практик в разработке.</p>
+      </div>
+    </section>
+
+    <!-- Секция: Portfolio -->
+    <section id="portfolio" class="portfolio-section">
+      <h1 class="about-title">Проекты</h1>
+
+      <div class="carousel-container">
+        <button class="nav-arrow left">‹</button>
+        <div class="carousel-track">
+          <div class="card" data-index="0" data-name="Porsche" data-role="3D Modeling" data-link="https://github.com/DmitryKotov199524/Porsche" data-gif-loaded="false">
+            <img src="assets/images/portfolio/porsche.png" alt="Porsche Project" data-gif="assets/images/portfolio/porschegif.gif" class="static-img">
+            <div class="gif-container"></div>
+            <div class="loading-indicator"></div>
+          </div>
+          <div class="card" data-index="1" data-name="VR Glass Project" data-role="AR/VR Development" data-link="https://github.com/DmitryKotov199524/VR-Glass-Project" data-gif-loaded="false">
+            <img src="assets/images/portfolio/vrglass.png" alt="VR Glass Project" data-gif="assets/images/portfolio/vrgif.gif" class="static-img">
+            <div class="gif-container"></div>
+            <div class="loading-indicator"></div>
+          </div>
+          <div class="card" data-index="2" data-name="Planet Explorer" data-role="Space Simulation" data-link="https://github.com/DmitryKotov199524/Planet-Explorer" data-gif-loaded="false">
+            <img src="assets/images/portfolio/planet.png" alt="Planet Explorer" data-gif="assets/images/portfolio/planetgif.gif" class="static-img">
+            <div class="gif-container"></div>
+            <div class="loading-indicator"></div>
+          </div>
+          <div class="card" data-index="3" data-name="Oktain" data-role="Brand Identity" data-link="https://github.com/DmitryKotov199524/Oktain" data-gif-loaded="false">
+            <img src="assets/images/portfolio/oktain.png" alt="Oktain Project" data-gif="assets/images/portfolio/oktaingif.gif" class="static-img">
+            <div class="gif-container"></div>
+            <div class="loading-indicator"></div>
+          </div>
+          <div class="card" data-index="4" data-name="Mars Mission" data-role="Scientific Visualization" data-link="https://github.com/DmitryKotov199524/Mars-Mission" data-gif-loaded="false">
+            <img src="assets/images/portfolio/mars.png" alt="Mars Mission" data-gif="assets/images/portfolio/marsgif.gif" class="static-img">
+            <div class="gif-container"></div>
+            <div class="loading-indicator"></div>
+          </div>
+          <div class="card" data-index="5" data-name="DESIGN KNGHTS" data-role="UI/UX Framework" data-link="https://github.com/DmitryKotov199524/DESIGN-KNGHTS" data-gif-loaded="false">
+            <img src="assets/images/portfolio/dizain.png" alt="Design Knights" data-gif="assets/images/portfolio/dizaingif.gif" class="static-img">
+            <div class="gif-container"></div>
+            <div class="loading-indicator"></div>
+          </div>
+        </div>
+        <button class="nav-arrow right">›</button>
+      </div>
+
+      <div class="member-info">
+        <h2 class="member-name">Porsche</h2>
+        <p class="member-role">
+          <a href="https://github.com/DmitryKotov199524/Porsche" class="github-link" target="_blank">
+            <svg class="github-icon" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.337-3.369-1.337-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.14 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+            </svg>
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Секция: Contacts -->
+    <section id="contact" class="contact-section">
+      <h2>Контакты</h2>
+      <ul class="sci">
+        <li style="--clr: #0088CC;"><a href="https://t.me/DmitryKotov1995" target="_blank"><i class="fa-brands fa-telegram"></i></a></li>
+        <li style="--clr: #128c7e;"><a href="https://wa.me/79538161592" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+        <li style="--clr: #0077ff;"><a href="https://vk.com/id133723998" target="_blank"><i class="fa-brands fa-vk"></i></a></li>
+        <li style="--clr: #181717;"><a href="https://github.com/DmitryKotov199524" target="_blank"><i class="fab fa-github"></i></a></li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="index.js"></script>
+</body>
+</html>
