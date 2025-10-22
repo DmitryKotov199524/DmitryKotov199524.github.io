@@ -1,10 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-/**
-===================================================================
-ОСНОВНАЯ ФУНКЦИЯ ЗАПУСКА ПРИЛОЖЕНИЯ
-===================================================================
-*/
+
 function initializeApp() {
   initHeaderSection();
   initAboutSection();
@@ -13,36 +9,34 @@ function initializeApp() {
   initNavigationAndScrolling();
 }
 
-/**
-Инициализирует анимацию "пишущей машинки" в хедере.
-*/
+
 function initHeaderSection() {
   const typingText = document.querySelector(".typing-text");
   if (!typingText) return;
 
-  // Сохраняем оригинальный текст
+  
   const originalText = typingText.textContent;
 
-  // Проверяем предпочтения пользователя относительно анимаций
+  
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   
-  // Определяем мобильное устройство
+  
   const isMobile = window.innerWidth <= 768;
 
-  // На мобильных устройствах или при отключенных анимациях показываем текст сразу
+  
   if (prefersReduced || isMobile) {
     typingText.style.animation = 'none';
     typingText.style.borderRight = 'none';
     typingText.style.whiteSpace = isMobile && window.innerWidth > 360 ? 'nowrap' : 'normal';
     
-    // Убеждаемся, что текст установлен корректно (без дублирования)
+    
     if (typingText.textContent !== originalText) {
       typingText.textContent = originalText;
     }
     return;
   }
 
-  // Для десктопов оставляем оригинальную анимацию
+
   const restartTypingAnimation = () => {
     typingText.style.animation = 'none';
     requestAnimationFrame(() => {
@@ -53,9 +47,7 @@ function initHeaderSection() {
   setInterval(restartTypingAnimation, 6000);
 }
 
-/**
-Инициализирует анимацию плавного появления для секции "Обо мне".
-*/
+
 function initAboutSection() {
   const animatedElement = document.querySelector('.about-content');
   if (!animatedElement) return;
@@ -72,9 +64,7 @@ function initAboutSection() {
   observer.observe(animatedElement);
 }
 
-/**
-Инициализирует 3D-карусель в секции "Портфолио" с оптимизированной загрузкой GIF
-*/
+
 function initPortfolioSection() {
   const portfolioSection = document.querySelector('#portfolio');
   if (!portfolioSection) return;
@@ -89,10 +79,10 @@ function initPortfolioSection() {
   let isAnimating = false;
   let gifPreloadStarted = false;
 
-  // Объект для хранения состояния загрузки GIF
+  
   const gifLoadState = new Map();
 
-  // Функция предзагрузки GIF
+  
   function preloadGifs() {
     if (gifPreloadStarted) return;
     gifPreloadStarted = true;
@@ -122,7 +112,7 @@ function initPortfolioSection() {
         card.classList.add('gif-ready');
         loadingIndicator.classList.remove('visible');
         
-        // Если эта карточка сейчас в центре, сразу показываем GIF
+        
         if (card.classList.contains('center')) {
           showGifForCard(card);
         }
@@ -138,12 +128,12 @@ function initPortfolioSection() {
         loadingIndicator.classList.remove('visible');
       };
 
-      // Начинаем загрузку
+      
       img.src = gifSrc;
     });
   }
 
-  // Функция показа GIF для конкретной карточки
+  
   function showGifForCard(card) {
     const gifContainer = card.querySelector('.gif-container');
     const staticImg = card.querySelector('.static-img');
@@ -151,30 +141,30 @@ function initPortfolioSection() {
     const gifState = gifLoadState.get(parseInt(card.dataset.index));
     
     if (gifState && gifState.loaded && gifSrc) {
-      // Устанавливаем multiple backgrounds: сначала GIF, потом градиент
+      
       gifContainer.style.backgroundImage = `url(${gifSrc}), linear-gradient(0deg, rgba(8, 8, 8, 1) 0%, rgba(125, 123, 123, 1) 22%, rgba(240, 237, 237, 1) 41%, rgba(250, 250, 250, 1) 50%, rgba(125, 123, 123, 1) 78%, rgba(8, 8, 8, 1) 100%)`;
       card.classList.add('gif-ready');
-      // Скрываем статичное изображение для центральной карточки
+      
       if (card.classList.contains('center')) {
         staticImg.style.opacity = '0';
       }
     } else {
-      // Если GIF не загружена, показываем статичное изображение
+      
       card.classList.remove('gif-ready');
       staticImg.style.opacity = '1';
     }
   }
 
-  // Функция скрытия GIF для неактивных карточек и показа статичного изображения
+ 
   function hideGifForCard(card) {
     const gifContainer = card.querySelector('.gif-container');
     const staticImg = card.querySelector('.static-img');
     
-    // Очищаем background-image чтобы остановить анимацию GIF
+    
     gifContainer.style.backgroundImage = 'linear-gradient(0deg, rgba(8, 8, 8, 1) 0%, rgba(125, 123, 123, 1) 22%, rgba(240, 237, 237, 1) 41%, rgba(250, 250, 250, 1) 50%, rgba(125, 123, 123, 1) 78%, rgba(8, 8, 8, 1) 100%)';
     card.classList.remove('gif-ready');
     
-    // ВАЖНОЕ ИСПРАВЛЕНИЕ: Всегда показываем статичное изображение для нецентральных карточек
+    
     staticImg.style.opacity = '1';
   }
 
@@ -198,11 +188,11 @@ function initPortfolioSection() {
 
       if (offset === 0) {
         card.classList.add("center");
-        // Показываем GIF если она загружена
+        
         showGifForCard(card);
       } else if (offset === 1) {
         card.classList.add("right-1");
-        // Скрываем GIF для неактивных карточек и показываем статичное изображение
+       
         hideGifForCard(card);
       } else if (offset === 2) {
         card.classList.add("right-2");
@@ -219,7 +209,7 @@ function initPortfolioSection() {
       }
     });
 
-    // Анимация смены имени и GitHub ссылки
+   
     memberName.style.opacity = "0";
     memberRole.style.opacity = "0";
 
@@ -245,7 +235,7 @@ function initPortfolioSection() {
     }, 800);
   }
 
-  // Обработчики событий
+  
   leftArrow.addEventListener("click", () => {
     updateCarousel(currentIndex - 1);
   });
@@ -260,7 +250,7 @@ function initPortfolioSection() {
     });
   });
 
-  // Управление с клавиатуры
+  
   const keydownHandler = (e) => {
     if (e.key === "ArrowLeft") {
       updateCarousel(currentIndex - 1);
@@ -269,7 +259,7 @@ function initPortfolioSection() {
     }
   };
 
-  // Свайпы для мобильных устройств
+  
   let touchStartX = 0;
   let touchEndX = 0;
 
@@ -295,13 +285,13 @@ function initPortfolioSection() {
     }
   }
 
-  // Инициализация при загрузке секции
+  
   new IntersectionObserver(entries => {
     const portfolioIsVisible = entries[0].isIntersecting;
     if (portfolioIsVisible) {
       document.addEventListener('keydown', keydownHandler);
       
-      // Запускаем предзагрузку GIF когда секция становится видимой
+     
       if (!gifPreloadStarted) {
         preloadGifs();
       }
@@ -313,14 +303,12 @@ function initPortfolioSection() {
   }, { threshold: 0.1 }).observe(portfolioSection);
 }
 
-/**
-Инициализирует интерактивные элементы в секции "Контакты".
-*/
+
 function initContactsSection() {
   const contactItems = document.querySelectorAll('.sci li');
   if (contactItems.length === 0) return;
 
-  // Инициализируем VanillaTilt только для устройств с hover
+  
   if (window.matchMedia('(hover: hover)').matches && typeof VanillaTilt !== 'undefined') {
     const links = document.querySelectorAll(".sci li a");
     VanillaTilt.init(links, { 
@@ -343,11 +331,7 @@ function initContactsSection() {
   });
 }
 
-/**
-===================================================================
-ИНИЦИАЛИЗАЦИЯ НАВИГАЦИИ И СКРОЛЛА (АДАПТИВНАЯ ВЕРСИЯ)
-===================================================================
-*/
+
 function initNavigationAndScrolling() {
   const navLinks = document.querySelectorAll(".main-nav a");
   const navHighlight = document.querySelector(".nav-highlight");
@@ -378,7 +362,7 @@ function initNavigationAndScrolling() {
       }
     });
 
-    // НЕМЕДЛЕННОЕ обновление навигации без задержек
+    
     navLinks.forEach(link => {
       const isActive = link.getAttribute('href') === `#${currentSectionId}`;
       link.classList.toggle("nav-active", isActive);
@@ -393,7 +377,7 @@ function initNavigationAndScrolling() {
     isScrolling = true;
     isProgrammaticScroll = true;
 
-    // НЕМЕДЛЕННОЕ обновление навигации ПЕРЕД началом скролла
+    
     navLinks.forEach(link => {
       const isActive = link.getAttribute('href') === sectionId;
       link.classList.toggle("nav-active", isActive);
@@ -424,7 +408,7 @@ function initNavigationAndScrolling() {
     return activeLink ? sectionIds.indexOf(activeLink.getAttribute('href')) : 0;
   };
 
-  // Функция пролистывания колесом (только для десктопов)
+ 
   const scrollCooldown = 800;
   let lastScrollTime = 0;
 
@@ -451,7 +435,7 @@ function initNavigationAndScrolling() {
     }
   };
 
-  // Включаем пролистывание только на десктопах с мышью и без reduce motion
+  
   const fullPageMq = window.matchMedia("(min-width: 1024px) and (pointer: fine) and (prefers-reduced-motion: no-preference)");
 
   function syncWheelBinding(e) {
@@ -465,15 +449,15 @@ function initNavigationAndScrolling() {
   syncWheelBinding();
   fullPageMq.addEventListener?.("change", syncWheelBinding);
 
-  // Плавное обновление хайлайта при горизонтальном скролле навигации
+  
   const nav = document.querySelector(".main-nav");
   nav?.addEventListener("scroll", moveHighlight, { passive: true });
 
-  // Улучшенный обработчик scroll для мгновенного обновления
+ 
   window.addEventListener("scroll", () => {
     if (!isProgrammaticScroll) {
       clearTimeout(scrollTimeout);
-      // Убираем задержку и обновляем сразу
+     
       updateActiveSection();
     }
   });
@@ -483,10 +467,11 @@ function initNavigationAndScrolling() {
     updateActiveSection();
   });
 
-  // Инициализация
+  
   updateActiveSection();
   setTimeout(moveHighlight, 100);
 }
 
 initializeApp();
+
 });
