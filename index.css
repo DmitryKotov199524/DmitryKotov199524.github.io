@@ -1,11 +1,10 @@
-/* --- 1. Глобальные стили и Навигация --- */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Oswald", sans-serif;
 }
-
 body {
   transition: background-color 0.5s;
   background-color: #000;
@@ -13,8 +12,6 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
-
-/* Навигация с горизонтальной прокруткой на узких экранах */
 .main-nav {
   position: fixed;
   top: 10px;
@@ -76,7 +73,6 @@ body {
   z-index: 0;
 }
 
-/* --- 2. Секция Header (Home) --- */
 .header {
   position: relative;
   min-height: 100vh;
@@ -182,7 +178,7 @@ body {
   clip-path: inset(0 0 0 88%);
 }
 
-/* Исправления для анимации печатания на мобильных */
+
 @media (max-width: 768px) {
   .typing-text {
     font-size: 1.3em;
@@ -203,7 +199,7 @@ body {
   }
 }
 
-/* Для очень узких экранов - уменьшаем шрифт чтобы текст полностью помещался */
+
 @media (max-width: 360px) {
   .typing-text {
     font-size: 1em;
@@ -232,7 +228,7 @@ body {
   }
 }
 
-/* --- 3. Секция About --- */
+
 .about-section {
   min-height: 100vh;
   min-height: 100svh;
@@ -311,7 +307,6 @@ body {
   }
 }
 
-/* --- 4. Секция Portfolio --- */
 .portfolio-section {
   min-height: 100vh;
   min-height: 100svh;
@@ -379,7 +374,7 @@ body {
   cursor: pointer;
 }
 
-/* Индикатор загрузки GIF */
+
 .loading-indicator {
   position: absolute;
   top: 10px;
@@ -413,14 +408,12 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  /* Обновленный градиент как во втором примере */
   background-image: linear-gradient(0deg, rgba(8, 8, 8, 1) 0%, rgba(125, 123, 123, 1) 22%, rgba(240, 237, 237, 1) 41%, rgba(250, 250, 250, 1) 50%, rgba(125, 123, 123, 1) 78%, rgba(8, 8, 8, 1) 100%);
   opacity: 0;
   transition: opacity 0.4s ease;
   z-index: 2;
 }
 
-/* Убедимся, что статичное изображение всегда видно, пока не загружена GIF */
 .card:not(.gif-ready) .static-img {
   opacity: 1 !important;
 }
@@ -433,7 +426,7 @@ body {
   opacity: 0;
 }
 
-/* ВАЖНОЕ ИСПРАВЛЕНИЕ: Для нецентральных карточек всегда показываем статичное изображение */
+
 .card:not(.center) .static-img {
   opacity: 1 !important;
 }
@@ -674,7 +667,7 @@ body {
   }
 }
 
-/* --- 5. Секция Contacts --- */
+
 .contact-section {
   min-height: 100vh;
   min-height: 100svh;
@@ -741,7 +734,7 @@ body {
   color: #fff;
 }
 
-/* Scroll-snap для десктопов */
+
 @media (min-width: 1024px) {
   main {
     scroll-snap-type: y proximity;
@@ -751,7 +744,7 @@ body {
   }
 }
 
-/* Доступность: уменьшение анимаций */
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001ms !important;
@@ -769,9 +762,10 @@ body {
   }
 }
 
-/* Отключение анимаций для пользователей с prefers-reduced-motion */
+
 @media (prefers-reduced-motion: reduce) {
   .warning-box {
     animation: none;
   }
+
 }
